@@ -291,7 +291,7 @@ class Residual(snt.Module):
     super().__init__(name=name)
     self._module = module
 
-  def __call__(self, inputs: tf.Tensor, is_training: bool, *args,
+  def __call__(self, inputs: tf.Tensor, is_training: bool = False, *args,
                **kwargs) -> tf.Tensor:
     return inputs + self._module(inputs, is_training, *args, **kwargs)
 

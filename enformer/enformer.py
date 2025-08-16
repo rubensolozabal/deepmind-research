@@ -220,7 +220,7 @@ class Sequential(snt.Module):
         layers = layers()
       self._layers = [layer for layer in layers if layer is not None]
 
-  def __call__(self, inputs: tf.Tensor, is_training: bool, **kwargs):
+  def __call__(self, inputs: tf.Tensor, is_training: bool = False, **kwargs):
     outputs = inputs
     for _, mod in enumerate(self._layers):
       if accepts_is_training(mod):

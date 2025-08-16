@@ -169,7 +169,7 @@ class Enformer(snt.Module):
     return self._heads
 
   def __call__(self, inputs: tf.Tensor,
-               is_training: bool) -> Dict[str, tf.Tensor]:
+               is_training: bool = False) -> Dict[str, tf.Tensor]:
     trunk_embedding = self.trunk(inputs, is_training=is_training)
     return {
         head: head_module(trunk_embedding, is_training=is_training)
